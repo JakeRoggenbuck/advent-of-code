@@ -15,10 +15,10 @@ class Pointer:
     def left(self, amount: int = 1):
         self.x -= amount
 
-    def get(self, lines):
-        if self.x >= len(lines[self.y]) - 1:
-            self.x = self.x - (len(lines[self.y]) - 1)
-        return lines[self.y][self.x]
+    def get(self, line):
+        if self.x >= len(line) - 1:
+            self.x = self.x - (len(line) - 1)
+        return line[self.x]
 
 
 class Frame:
@@ -32,8 +32,8 @@ class Frame:
     def main(self):
         pointer = Pointer(0, 0)
         self.trees = 0
-        for lines in self.lines:
-            item = pointer.get(self.lines)
+        for line in self.lines:
+            item = pointer.get(line)
             if item == "#":
                 self.trees += 1
             pointer.down()
