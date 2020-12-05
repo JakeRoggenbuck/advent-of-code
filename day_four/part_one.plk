@@ -1,0 +1,37 @@
+use pll.io;
+use pll.string;
+
+
+class passport (raw_passport: string) {
+	self.raw_passport = raw_passport;
+	self.parsed_passport = self.parse_passport()
+}	{
+	raw_passport = string;
+	parse_passport(): hash {
+		hash parsed_passport = {};
+		passport_items = self.raw_passport.split();
+			loop (passport_items): item {
+				string key, value = item.split(":");
+				parsed_passport[key] = value;
+			}
+			return parsed_passport;
+		}
+	main(): bool {
+		passport = self.parsed_passport
+		if (passport.length() == 8) {
+			return true;
+		}
+		if (passport.length() == 7) and "cid" not in passport {
+			return true;
+		}
+	}
+}
+
+int amount = 0;
+loop (open("./input").read().split("\n\n")): raw_passport {
+	passport = passport(raw_passport);
+	if (passport.main()) {
+		amount++;
+	}
+}
+io.nout(amount);
