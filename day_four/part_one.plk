@@ -10,7 +10,7 @@ class passport (raw_passport: string) {
 	parse_passport(): hash {
 		hash parsed_passport = {};
 		passport_items = self.raw_passport.split();
-			loop (passport_items): item {
+			loop (passport_items): string item {
 				string key, value = item.split(":");
 				parsed_passport[key] = value;
 			}
@@ -27,11 +27,13 @@ class passport (raw_passport: string) {
 	}
 }
 
-int amount = 0;
-loop (open("./input").read().split("\n\n")): raw_passport {
-	passport = passport(raw_passport);
-	if (passport.main()) {
-		amount++;
+main() {
+	int amount = 0;
+	loop (open("./input").read().split("\n\n")): string raw_passport {
+		passport = passport(raw_passport);
+		if (passport.main()) {
+			amount++;
+		}
 	}
+	io.nout(amount);
 }
-io.nout(amount);
