@@ -1,4 +1,4 @@
-with open("./input") as file:
+with open("../input") as file:
     lines = [int(x.strip()) for x in file.readlines()]
 
 A = lines[0]
