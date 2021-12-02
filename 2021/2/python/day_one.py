@@ -15,6 +15,7 @@ def non_golf():
 
 
 def golf():
+    """This is bad code, this is golfed sorta, never do this"""
     f=open("../input")
     l=f.readlines()
     n=0
