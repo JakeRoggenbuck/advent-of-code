@@ -1,4 +1,4 @@
-memory = [0] * 1
+memory = [0] * 12
 gamma = memory.copy()
 epsilon = memory.copy()
 
