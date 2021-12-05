@@ -11,24 +11,23 @@ int main() {
 
     int last = 0;
     int num_increases = -1;
-	int current;
-
+    int current;
 
     if (!fp.is_open()) {
-		exit(1);
-	}
+        exit(1);
+    }
 
-	while (fp) {
-		std::getline(fp, line);
-		if (line != "") {
-			current = stoi(line);
-			if (current > last) {
-				num_increases += 1;
-			}
-			last = current;
-		}
-	}
+    while (fp) {
+        std::getline(fp, line);
+        if (line != "") {
+            current = stoi(line);
+            if (current > last) {
+                num_increases += 1;
+            }
+            last = current;
+        }
+    }
 
-	std::cout << num_increases << std::endl;
+    std::cout << num_increases << std::endl;
     return 0;
 }
