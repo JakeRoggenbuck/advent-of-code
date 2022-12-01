@@ -3,18 +3,18 @@
 
 int main() {
     FILE *fp;
-    size_t len = 6;
+    int bytes_read;
+    size_t size = 10;
     char *line;
-    size_t size;
 
     int largest = 0;
     int total = 0;
 
     fp = fopen("input", "r");
-    while ((size = getline(&line, &len, fp)) != -1) {
-        if (size >= 5) {
+    while ((bytes_read = getline(&line, &size, fp)) != -1) {
+        if (bytes_read >= 5) {
             total += atoi(line);
-        } else if (size == 1) {
+        } else if (bytes_read == 1) {
             if (total > largest) {
                 largest = total;
             }
