@@ -1,4 +1,4 @@
-with open("input") as file:
+with open("../input") as file:
     total = 0
 
     real_maxes = {"green": 13, "blue": 14, "red": 12}
@@ -23,7 +23,13 @@ with open("input") as file:
                 if int(maxes[word]) < int(num):
                     maxes[word] = int(num)
 
-        total += maxes["green"] * maxes["blue"] * maxes["red"]
+        valid = True
+        for ((bk, bv), (ck, cv)) in zip(real_maxes.items(), maxes.items()):
+            print(cv, bv)
+            if cv > bv:
+                valid = False
 
+        if valid:
+            total += int(id)
 
 print(total)

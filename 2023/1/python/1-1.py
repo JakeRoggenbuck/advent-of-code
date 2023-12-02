@@ -17,7 +17,7 @@ def find_nums(line: str) -> str:
 
 total = 0
 
-with open("input") as file:
+with open("../input") as file:
     for line in file:
 
         val = find_nums(line)
