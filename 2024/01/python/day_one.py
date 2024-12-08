@@ -1,7 +1,7 @@
 l_one = []
 l_two = []
 
-with open("./input") as file:
+with open("../input") as file:
     for line in file:
         a, b = line.split()
         l_one.append(int(a))
